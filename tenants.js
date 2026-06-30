@@ -1,0 +1,123 @@
+// tenants.js
+
+export const tenantData = {
+  "Bruno Augusto": {
+    endereco:
+      "Rua Silverstone, nº 849, casa 38B - Jardim São João, Jandira/SP - CEP: 06634-000.",
+    vencimentoDia: 5,
+    aluguel: 2096.81,
+    condominio: 0,
+    desconto: 0,
+    agua: 40.42,
+    iptu: 0,
+    compensacaoDesc: "Seguro Fiança ?/12", compensacaoValor: 218.05,
+    encargos: 8.0,
+  },
+  "Ricardo Luiz": {
+    endereco:
+      "Estrada Normândia nº 450, A-07 – Jardim Pioneiro, Cotia/SP - CEP 06705-360",
+    vencimentoDia: 5,
+    aluguel: 1750.0,
+    condominio: 0,
+    desconto: 0,
+    agua: 0,
+    iptu: 0,
+    compensacaoDesc: "", compensacaoValor: 0,
+    encargos: 8.0,
+  },
+  "NAYARA DE OLIVEIRA LEAL": {
+    endereco:
+      "Rua Silverstone, nº 849, casa 23A - Jardim São João, Jandira/SP - CEP: 06634-000.",
+    vencimentoDia: 10,
+    aluguel: 2097.86,
+    condominio: 452.14,
+    desconto: 0.0,
+    agua: 40.42,
+    iptu: 48.78,
+    compensacaoDesc: "", compensacaoValor: 0,
+    encargos: 8.0,
+  },
+  "Sthefany Fayane": {
+    endereco:
+      "Rua Diogo Antônio Feijó, nº 45, casa 69B - Parque Imperial, Barueri/SP - CEP 06462-250.",
+    vencimentoDia: 10,
+    aluguel: 2800.0,
+    condominio: 0,
+    desconto: 300.0,
+    agua: 0,
+    iptu: 0,
+    compensacaoDesc: "", compensacaoValor: 0,
+    encargos: 8.0,
+  },
+  "Agnaldo de Sousa": {
+    endereco:
+      "Travessa Porto Velho, nº 96, casa 03 - Jardim Libano, Barueri/SP - CEP: 06448-150.",
+    vencimentoDia: 10,
+    aluguel: 1542.77,
+    condominio: 0,
+    desconto: 100.0,
+    agua: 0,
+    iptu: 0,
+    compensacaoDesc: "", compensacaoValor: 0,
+    encargos: 8.0,
+  },
+  "Krishna Nascimento": {
+    endereco:
+      "Rua Silverstone, nº 849, casa 49B- Jardim São João, Jandira/SP - CEP: 06634-000.",
+    vencimentoDia: 10,
+    aluguel: 1894.05,
+    condominio: 0,
+    desconto: 100.0,
+    agua: 40.42,
+    iptu: 0,
+    compensacaoDesc: "", compensacaoValor: 0,
+    encargos: 8.0,
+  },
+  "Ronan Nascimento": {
+    endereco: "Rua Terça, nº 395 - Jardim Audir, Barueri/SP - CEP: 06433-030.",
+    vencimentoDia: 10,
+    aluguel: 2000.0,
+    condominio: 0,
+    desconto: 0,
+    agua: 0,
+    iptu: 0,
+    compensacaoDesc: "", compensacaoValor: 0,
+    encargos: 8.0,
+  },
+  "Juscileide Festrati": {
+    endereco:
+      "Rua Silverstone, nº 849, casa 13A- Jardim São João, Jandira/SP - CEP: 06634-000.",
+    vencimentoDia: 15,
+    aluguel: 2606.61,
+    condominio: 0,
+    desconto: 0,
+    agua: 40.42,
+    iptu: 0,
+    compensacaoDesc: "", compensacaoValor: 0,
+    encargos: 8.0,
+  },
+  "Jonas Ferreira": {
+    endereco:
+      "Rua Jarama, nº 90, Casa 2 - Jardim São João, JANDIRA/SP - CEP: 06634-020.",
+    vencimentoDia: 15,
+    aluguel: 2300.77,
+    condominio: 0,
+    desconto: 200.0,
+    agua: 75.92,
+    iptu: 0,
+    compensacaoDesc: "", compensacaoValor: 0,
+    encargos: 8.0,
+  },
+    "Taynara Alves": {
+    endereco:
+      "Estrada das Nações, 395, apartamento 25, bloco A Vila Iracema, Barueri/SP, CEP 06422-100",
+    vencimentoDia: 15,
+    aluguel: 2400.00,
+    condominio: 471.0,
+    desconto: 100.0,
+    agua: 0,
+    iptu: 0,
+    compensacaoDesc: "Gás", compensacaoValor: 0,
+    encargos: 8.0,
+  },
+};

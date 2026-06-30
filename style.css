@@ -1,0 +1,368 @@
+/* Importa a nova fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
+
+/* --- VARIÁVEIS DE COR --- */
+:root {
+    --azul-escuro: #0d2d62;
+    --azul-claro: #c4daff;
+    --amarelo: #ffc857;
+    --fundo: #f4f7f9;
+    --texto: #333;
+    --borda: #c4daff;
+}
+
+/* --- ESTILOS GERAIS --- */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--fundo);
+    color: var(--texto);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0px;
+}
+
+h1 {
+    font-weight: 800;
+    color: var(--azul-escuro);
+    text-align: center;
+}
+
+/* --- ESTILOS DOS CONTAINERS PRINCIPAIS --- */
+.container,
+.form-container {
+    max-width: 700px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--borda);
+}
+
+/* --- ESTILOS DA TELA DE ESCOLHA --- */
+.choice-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.choice-buttons button {
+    flex: 1;
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+    padding: 20px;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.choice-buttons button:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(13, 45, 98, 0.15);
+    border-color: var(--azul-escuro);
+}
+
+.btn-title {
+    display: block;
+    font-size: 1.3em;
+    font-weight: 800;
+}
+
+.btn-desc {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* --- ESTILOS DO FORMULÁRIO --- */
+fieldset {
+    border: 2px dashed var(--borda);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+legend {
+    font-weight: 700;
+    color: var(--azul-escuro);
+    padding: 0 15px;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Espaço entre ícone e texto */
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 0.95em;
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+select {
+    padding: 12px 15px;
+    border: 2px solid var(--borda);
+    border-radius: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1em;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 10px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--amarelo);
+    box-shadow: 0 0 8px rgba(255, 200, 87, 0.5);
+}
+
+/* Estilo para campos de data customizados */
+input[type="date"],
+input[type="month"] {
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.negative {
+    color: red;
+
+}
+
+/* Grupos de botões (Somar/Subtrair, Juros) */
+.radio-group,
+.check-group {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 15x 0 15px 5px;
+}
+
+.radio-group input,
+.check-group input {
+    width: auto;
+}
+
+.radio-group label,
+.check-group label {
+    font-weight: normal;
+    color: #555;
+}
+
+/* Botão de Gerar Recibo */
+form button {
+    background-color: var(--amarelo);
+    color: var(--azul-escuro);
+    padding: 15px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 800;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #ffb52b;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(255, 200, 87, 0.4);
+}
+
+/* --- ANIMAÇÃO DE CARREGAMENTO (GIF) --- */
+#loading-animation {
+    text-align: center;
+    padding: 50px;
+}
+
+#loading-animation p {
+    font-weight: 700;
+    color: var(--azul-escuro);
+    margin-top: 10px;
+}
+
+/* --- RECIBO GERADO --- */
+#receipt-output {
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.recibo-header {
+    background-color: var(--azul-escuro);
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left h2 {
+    font-size: 25pt;
+}
+
+.header-right {
+    text-align: center;
+}
+
+.header-logo {
+    width: 90px;
+}
+
+.address {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.adress-icon {
+    width: 23px;
+}
+
+.header-creci {
+    font-size: 9pt;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+.recibo-body {
+    padding: 30px 40px;
+}
+
+.recibo-body .date-line {
+    text-align: right;
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+.recibo-body .title {
+    font-size: 1.5em;
+    color: var(--azul-escuro);
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.recibo-body p {
+    margin-bottom: 20px;
+    text-align: justify; /* <<< ALTERAÇÃO APLICADA AQUI */
+}
+
+.value-table {
+    border: 2px solid var(--borda);
+    border-radius: 12px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.value-table .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-bottom: 2px solid var(--borda);
+    align-items: center;
+}
+
+.value-table .row:last-child {
+    border-bottom: none;
+}
+
+.value-table .row.total {
+    background-color: var(--azul-claro);
+    font-weight: 700;
+    padding: 14px 15px;
+    color: var(--azul-escuro);
+}
+
+.space {
+    height: 30px;
+}
+
+.recibo-footer {
+    background-color: var(--azul-escuro);
+    color: white;
+    padding: 15px 40px;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.footer-contact {
+    opacity: 0.8;
+}
+
+.footer-realtor {
+    margin-top: 8px;
+    font-weight: 700;
+}
+
+.hidden {
+    display: none;
+}
+
+.actions {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--fundo);
+}
+
+.actions button {
+    background-color: var(--azul-escuro);
+    color: white;
+    border-radius: 12px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+}
+
+.actions button:hover {
+    background-color: #1c478f;
+}
+
+.actions button:last-child {
+    background-color: #777;
+}
+
+.actions button:last-child:hover {
+    background-color: #555;
+}
+
+/* Estilos de Impressão (sem grandes mudanças visuais) */
+@media print {
+    body {
+        background-color: #fff;
+    }
+
+    .container,
+    .form-container,
+    .actions {
+        display: none;
+    }
+
+    #receipt-output {
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .recibo-header,
+    .recibo-footer {
+        background-color: var(--azul-escuro) !important;
+        color: white !important;
+    }
+}

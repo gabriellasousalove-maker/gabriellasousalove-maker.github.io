@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recibo de Aluguel</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="choice-container" class="container">
+      <h1>Oba! Qual recibo vamos fazer hoje?</h1>
+      <div class="choice-buttons">
+        <button id="btn-tenant-receipt">
+          <span class="btn-title">Para o Inquilino ✨</span
+          ><span class="btn-desc">Gera um recibo de pagamento.</span>
+        </button>
+        <button id="btn-owner-receipt">
+          <span class="btn-title">Para o Proprietário 🏡</span
+          ><span class="btn-desc">Gera um demonstrativo de repasse.</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="tenant-form-container" class="form-container hidden">
+      <h1>Recibo do Inquilino</h1>
+      <form id="tenant-form">
+        <fieldset>
+          <legend>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Informações Gerais
+          </legend>
+          <label for="tenant-inquilino-input">Nome do Inquilino:</label>
+          <input
+            type="text"
+            id="tenant-inquilino-input"
+            list="inquilinos-list"
+            required
+            autocomplete="off"
+          />
+          <datalist id="inquilinos-list">
+            <option value="Bruno Augusto"></option>
+            <option value="Ricardo Luiz"></option>
+            <option value="NAYARA DE OLIVEIRA LEAL"></option>
+            <option value="Sthefany Fayane"></option>
+            <option value="Agnaldo de Sousa"></option>
+            <option value="Krishna Nascimento"></option>
+            <option value="Ronan Nascimento"></option>
+            <option value="Juscileide Festrati"></option>
+            <option value="Jonas Ferreira"></option>
+            <option value="Taynara Alves"></option>
+          </datalist>
+          <label for="tenant-endereco-imovel">Endereço do Imóvel:</label>
+          <input
+            type="text"
+            id="tenant-endereco-imovel"
+            placeholder="Preenchido automaticamente ou digite"
+            required
+          />
+        </fieldset>
+        <fieldset>
+          <legend>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Datas
+          </legend>
+          <label for="tenant-mes-referencia">Mês de Referência:</label>
+          <input type="month" id="tenant-mes-referencia" required />
+          <label for="tenant-data-vencimento">Data de Vencimento:</label>
+          <input type="date" id="tenant-data-vencimento" required />
+          <label for="tenant-data-documento"
+            >Data de Emissão do Documento:</label
+          >
+          <input type="date" id="tenant-data-documento" required />
+        </fieldset>
+        <fieldset>
+          <legend>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path
+                d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+              ></path>
+            </svg>
+            Valores
+          </legend>
+          <label for="tenant-valor-aluguel">Valor do Aluguel (R$):</label>
+          <input type="text" id="tenant-valor-aluguel" class="currency-input" placeholder="R$ 0,00" required />
+
+          <label for="tenant-valor-condominio">Valor do Condomínio:</label>
+          <input type="text" id="tenant-valor-condominio" class="currency-input" placeholder="R$ 0,00" />
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="tenant-condo-add"
+              name="tenant-condo-op"
+              value="add"
+              checked
+            /><label for="tenant-condo-add">Somar</label
+            ><input
+              type="radio"
+              id="tenant-condo-subtract"
+              name="tenant-condo-op"
+              value="subtract"
+            /><label for="tenant-condo-subtract">Subtrair</label>
+          </div>
+
+          <label for="tenant-valor-agua">Consumo de Água:</label>
+          <input type="text" id="tenant-valor-agua" class="currency-input" placeholder="R$ 0,00" />
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="tenant-agua-add"
+              name="tenant-agua-op"
+              value="add"
+              checked
+            /><label for="tenant-agua-add">Somar</label
+            ><input
+              type="radio"
+              id="tenant-agua-subtract"
+              name="tenant-agua-op"
+              value="subtract"
+            /><label for="tenant-agua-subtract">Subtrair</label>
+          </div>
+
+          <label for="tenant-valor-iptu">Valor do IPTU:</label>
+          <input type="text" id="tenant-valor-iptu" class="currency-input" placeholder="R$ 0,00" />
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="tenant-iptu-add"
+              name="tenant-iptu-op"
+              value="add"
+              checked
+            /><label for="tenant-iptu-add">Somar</label
+            ><input
+              type="radio"
+              id="tenant-iptu-subtract"
+              name="tenant-iptu-op"
+              value="subtract"
+            /><label for="tenant-iptu-subtract">Subtrair</label>
+          </div>
+
+          <label for="tenant-desconto-pontualidade">Desconto de Pontualidade:</label>
+          <input type="text" id="tenant-desconto-pontualidade" class="currency-input" placeholder="R$ 0,00" />
+
+          <label for="tenant-compensacao-desc">Descrição da Compensação Extra:</label>
+          <input type="text" id="tenant-compensacao-desc" placeholder="Ex: Internet, Pintura, etc." />
+
+          <label for="tenant-compensacao-valor">Valor da Compensação:</label>
+          <input type="text" id="tenant-compensacao-valor" class="currency-input" placeholder="R$ 0,00" />
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="tenant-compensacao-add"
+              name="tenant-compensacao-op"
+              value="add"
+              checked/>
+            <label for="tenant-compensacao-add">Somar</label>
+            <input
+              type="radio"
+              id="tenant-compensacao-subtract"
+              name="tenant-compensacao-op"
+              value="subtract"/>
+            <label for="tenant-compensacao-subtract">Subtrair</label>
+          </div>
+
+          <div class="check-group">
+            <input type="checkbox" id="tenant-add-juros" /><label for="tenant-add-juros">
+              <strong> Houve Juros e Multa?</strong>
+            </label>
+          </div>
+          <input
+            type="text"
+            id="tenant-valor-juros"
+            class="hidden currency-input"
+            placeholder="Valor do Juros e Multa"
+          />
+
+          <label for="tenant-encargos-extra">Outros Encargos:</label>
+          <input type="text" id="tenant-encargos-extra" class="currency-input" placeholder="R$ 0,00" />
+        </fieldset>
+        <fieldset>
+          <legend>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Corretor
+          </legend>
+          <label for="corretor-creci">CRECI/SP:</label>
+          <input type="text" id="corretor-creci" value="207833" required />
+        </fieldset>
+        <button type="submit">Gerar Recibo!</button>
+      </form>
+    </div>
+
+    <div id="owner-form-container" class="form-container hidden">
+      <h1>Recibo do Proprietário</h1>
+      <form id="owner-form">
+        <fieldset>
+          <legend>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Informações Gerais
+          </legend>
+          <label for="owner-proprietario-input">Nome do Proprietário:</label>
+          <input
+            type="text"
+            id="owner-proprietario-input"
+            list="proprietarios-list"
+            required
+            autocomplete="off"
+          />
+          <datalist id="proprietarios-list">
+            <option value="Luiz Antônio"></option>
+            <option value="Eduardo Araújo"></option>
+            <option value="Eliedina Moreira"></option>
+            <option value="Carlos Moreira"></option>
+            <option value="Paulo Roberto"></option>
+            <option value="Simone Nunes"></option>
+            <option value="Liliane Lemos"></option>
+            <option value="Damiana Aparecida"></option>
+            <option value="Fabiana Ramos"></option>
+            <option value="Tiago Rodrigues"></option>
+            <option value="Carlos Augusto"></option>
+          </datalist>
+          <label for="owner-repasse-nome">Nome para Repasse:</label>
+          <input
+            type="text"
+            id="owner-repasse-nome"
+            required
+            placeholder="Preenchido automaticamente ou digite"
+          />
+          <label for="owner-dados-repasse"
+            >Dados para Pagamento do Repasse (PIX):</label
+          >
+          <input
+            type="text"
+            id="owner-dados-repasse"
+            required
+            placeholder="Preenchido automaticamente ou digite"
+          />
+          <label for="owner-endereco-imovel">Endereço do Imóvel:</label>
+          <input
+            type="text"
+            id="owner-endereco-imovel"
+            required
+            placeholder="Preenchido automaticamente ou digite"
+          />
+        </fieldset>
+        <fieldset>
+          <legend>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Datas
+          </legend>
+          <label for="owner-mes-referencia">Mês de Referência:</label>
+          <input type="month" id="owner-mes-referencia" required />
+          <label for="owner-data-documento"
+            >Data de Emissão do Documento:</label
+          >
+          <input type="date" id="owner-data-documento" required />
+        </fieldset>
+        <fieldset>
+          <legend>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path
+                d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+              ></path>
+            </svg>
+            Valores e Taxas
+          </legend>
+          <label for="owner-valor-aluguel">Valor Bruto do Aluguel (R$):</label>
+          <input type="text" id="owner-valor-aluguel" class="currency-input" placeholder="R$ 0,00" required />
+
+          <label for="owner-valor-condominio">Valor do Condomínio:</label>
+          <input type="text" id="owner-valor-condominio" class="currency-input" placeholder="R$ 0,00" />
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="owner-condo-add"
+              name="owner-condo-op"
+              value="add"
+              checked
+            /><label for="owner-condo-add">Somar</label
+            ><input
+              type="radio"
+              id="owner-condo-subtract"
+              name="owner-condo-op"
+              value="subtract"
+            /><label for="owner-condo-subtract">Subtrair</label>
+          </div>
+
+          <label for="owner-valor-agua">Consumo de Água:</label>
+          <input type="text" id="owner-valor-agua" class="currency-input" placeholder="R$ 0,00" />
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="owner-agua-add"
+              name="owner-agua-op"
+              value="add"
+              checked
+            /><label for="owner-agua-add">Somar</label
+            ><input
+              type="radio"
+              id="owner-agua-subtract"
+              name="owner-agua-op"
+              value="subtract"
+            /><label for="owner-agua-subtract">Subtrair</label>
+          </div>
+
+          <label for="owner-valor-iptu">Valor do IPTU:</label>
+          <input type="text" id="owner-valor-iptu" class="currency-input" placeholder="R$ 0,00" />
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="owner-iptu-add"
+              name="owner-iptu-op"
+              value="add"
+              checked
+            /><label for="owner-iptu-add">Somar</label
+            ><input
+              type="radio"
+              id="owner-iptu-subtract"
+              name="owner-iptu-op"
+              value="subtract"
+            /><label for="owner-iptu-subtract">Subtrair</label>
+          </div>
+
+          <div class="check-group">
+            <input type="checkbox" id="owner-add-juros" /><label for="owner-add-juros">Houve Juros e Multa?</label>
+          </div>
+          <input
+            type="text"
+            id="owner-valor-juros"
+            class="hidden currency-input"
+            placeholder="Valor do Juros e Multa"
+          />
+
+          <label for="owner-desconto-pontualidade">Desconto Pontualidade:</label>
+          <input type="text" id="owner-desconto-pontualidade" class="currency-input" placeholder="R$ 0,00" />
+
+          <label for="owner-compensacao-desc">Descrição da Compensação Extra:</label>
+          <input
+            type="text"
+            id="owner-compensacao-desc"
+            placeholder="Ex: Internet, Pintura, etc."
+          />
+          <label for="owner-compensacao-valor">Valor da Compensação:</label>
+          <input type="text" id="owner-compensacao-valor" class="currency-input" placeholder="R$ 0,00" />
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="owner-compensacao-add"
+              name="owner-compensacao-op"
+              value="add"
+              checked
+            /><label for="owner-compensacao-add">Somar</label
+            ><input
+              type="radio"
+              id="owner-compensacao-subtract"
+              name="owner-compensacao-op"
+              value="subtract"/>
+            <label for="owner-compensacao-subtract">Subtrair</label>
+          </div>
+
+          <div class="check-group">
+            <input type="checkbox" id="owner-primeiro-aluguel" /><label for="owner-primeiro-aluguel">É o primeiro aluguel? (taxa fixa)</label>
+          </div>
+          <div id="owner-corretagem-reais-group" class="hidden">
+            <label for="owner-corretagem-reais">Valor Fixo da Corretagem (R$):</label>
+            <input type="text" id="owner-corretagem-reais" class="currency-input" placeholder="R$ 0,00" />
+          </div>
+        </fieldset>
+        <button type="submit">Gerar Recibo de Repasse</button>
+      </form>
+    </div>
+
+    <div id="loading-animation" class="hidden">
+      <img
+        src="data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAAAz/5mZ/zNm/92Z//+Z/zOZ/zNmmWYzZmZmzMyZzGZmmf///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQJAAAPACwAAAAAIAAgAAAE5hDISau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru987//AoHBILBqPyKRyyWw6n9CodEqtWq/YrHbL7Xq/4LB4TC6bz+i0es1uu9/wuHxOr9vv+Lx+z+/7/4CBgoOEhYaHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6foKGio6SlpqeoqaqrrK2ur7AIACH5BAkAAA8ALAAAAAAgACAAAATiEMhJq7046827/2AojmRpnmiqrmzrvnAsz3Rt33iu73zv/8CgcEgsGo/IpHLJbDqf0Kh0Sq1aD2Kx2y+16v2Cw2GwuG4/o1DrNbrvf8Lh8Tq/b7/i8fs/v+/+AgYKDhIWGh4iJioOIh5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6ipqqusra6vsKGys7S1tre4ubq7vL2+v8DBwsPExcbHyMnKy8zNzkEAIfkECQAADwAsAAAAACAAIAAABOYQyEmrvTjrzbv/YCiOZGmeaKqubOu+cCzPdG3feK7vfO//wKBwSCwaj8ikcslsOp/QqHRKrVqv2Kx2y+16v2Cw/EoumM/otHrNbrvf8Lh8Tq/b7/i8fs/v+/+AgYKDhIWGh4iJiouMjY6PkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaanqKmqq6ytrq+wCAAh+QQJAAAPACwAAAAAIAAgAAAE4hDISau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru987//AoHBILBqPyKRyyWw6n9CodEqtWq/YrHbL7Xq/4LD4TC6bz+i0es1uu9/wuHxOr9vv+Lx+z+/7/4CBgoOEhYaHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6foKGio6SlpqeoqaqrrK2ur7AIACH5BAkAAA8ALAAAAAAgACAAAATmEMhJq7046827/2AojmRpnmiqrmzrvnAsz3Rt33iu73zv/8CgcEgsGo/IpHLJbDqf0Kh0Sq1aD2Kx2y+16v2Cw2GwuG4/o1DrNbrvf8Lh8Tq/b7/i8fs/v+/+AgYKDhIWGh4iJioOIh5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6ipqqusra6vsKGys7S1tre4ubq7vL2+v8DBwsPExcbHyMnKy8zNzkEAIfkECQAADwAsAAAAACAAIAAABOYQyEmrvTjrzbv/YCiOZGmeaKqubOu+cCzPdG3feK7vfO//wKBwSCwaj8ikcslsOp/QqHRKrVqv2Kx2y+16v2Cw/EoumM/otHrNbrvf8Lh8Tq/b7/i8fs/v+/+AgYKDhIWGh4iJiouMjY6PkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaanqKmqq6ytrq+wCAAh+QQJAAAPACwAAAAAIAAgAAAE4hDISau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru987//AoHBILBqPyKRyyWw6n9CodEqtWq/YrHbL7Xq/4LD4TC6bz+i0es1uu9/wuHxOr9vv+Lx+z+/7/4CBgoOEhYaHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6foKGio6SlpqeoqaqrrK2ur7AIACH5BAkAAA8ALAAAAAAgACAAAATmEMhJq7046827/2AojmRpnmiqrmzrvnAsz3Rt33iu73zv/8CgcEgsGo/IpHLJbDqf0Kh0Sq1aD2Kx2y+16v2Cw2GwuG4/o1DrNbrvf8Lh8Tq/b7/i8fs/v+/+AgYKDhIWGh4iJioOIh5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6ipqqusra6vsKGys7S1tre4ubq7vL2+v8DBwsPExcbHyMnKy8zNzkEAOw=="
+        alt="Gerando recibo..."
+      />
+      <p>Criando seu recibo...</p>
+    </div>
+
+    <div id="receipt-output" class="hidden">
+      <div id="recibo-content" style="max-width: 210mm; margin: 0 auto"></div>
+      <div class="actions">
+        <button onclick="window.print()">Salvar como PDF / Imprimir</button>
+        <button onclick="location.reload()">Gerar Novo Recibo</button>
+      </div>
+    </div>
+    <style>
+      @media print {
+        .container {
+          padding-left: unset !important;
+          padding-right: unset !important;
+          max-width: unset !important;
+        }
+      }
+    </style>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
