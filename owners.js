@@ -93,7 +93,7 @@ export const ownerData = {
         repasseNome: "DAMIANA APARECIDA DOS SANTOS",
         dadosRepasse: "CNPJ – 271.560.838-13",
         endereco: "Rua Terça, nº 395 - Jardim Audir, Barueri/SP - CEP: 06433-030.",
-        aluguel: 2000.00, 
+        aluguel: 2089.48, 
         condominio: 0, 
         desconto: 0, 
         agua: 0, 
