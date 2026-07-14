@@ -76,7 +76,7 @@ export const tenantData = {
   "Ronan Nascimento": {
     endereco: "Rua Terça, nº 395 - Jardim Audir, Barueri/SP - CEP: 06433-030.",
     vencimentoDia: 10,
-    aluguel: 2000.0,
+    aluguel: 2089.48,
     condominio: 0,
     desconto: 0,
     agua: 0,
