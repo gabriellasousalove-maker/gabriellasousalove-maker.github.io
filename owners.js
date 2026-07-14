@@ -123,16 +123,15 @@ export const ownerData = {
         compensacaoDesc: "", compensacaoValor: 0
     },
     "Carlos Augusto": {
-        repasseNome: "",
-        dadosRepasse: "",
+        repasseNome: "Vanessa Priscila e Carlos Augusto",
+        dadosRepasse: "Vanessa: 28855063855 - Carlos: 126959236860",
         endereco: "Estrada das Nações, 395, apartamento 25, bloco A Vila Iracema, Barueri/SP, CEP 06422-100",
-        aluguel: 2871.00, 
-        condominio: 0, 
+        aluguel: 2400.00, 
+        condominio: 471.00, 
         desconto: 100.00, 
         agua: 0, 
         iptu: 0,
-        compensacaoDesc: "", compensacaoValor: 0
+        compensacaoDesc: "Gás", compensacaoValor: 0
     },
-    
-    
+
 };
